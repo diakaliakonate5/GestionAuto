@@ -1,0 +1,47 @@
+
+<ion-content>
+  <ion-back-button slot="end"></ion-back-button>
+  <ion-header>
+    <ion-toolbar>
+    
+      <ion-title>ajouter un apprenant</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card *ngIf="Erreur">
+      <ion-label >
+        {{Erreur.message}}
+      </ion-label>
+      <ion-label>
+        {{Erreur.errors}}
+      </ion-label>
+  </ion-card>
+  <form [formGroup]="addApprenant" (ngSubmit)="SaveData()" >
+
+    <ion-item lines="full">
+      <ion-label position="floating">Name</ion-label>
+      <ion-input formControlName="nom" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">prenom</ion-label>
+      <ion-input formControlName="prenom" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">telephone</ion-label>
+      <ion-input formControlName="telephone" type="telephone" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">email</ion-label>
+      <ion-input formControlName="email" type="email" required></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Submit</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
